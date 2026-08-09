@@ -1,0 +1,267 @@
+/* ------------------------------------------------------------------
+   The Manuscript Cipher
+   Palette
+     desk (near-black walnut)  #171310
+     desk panel                #201B16
+     parchment                 #EAE0C4
+     parchment shadow          #D8CBA6
+     walnut ink                #2B2115
+     faded ink                 #6E5C42
+     sealing wax               #7A2A1E
+   ------------------------------------------------------------------ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --desk: #171310;
+  --panel: #201b16;
+  --panel-edge: #352b20;
+  --parchment: #eae0c4;
+  --ink: #2b2115;
+  --ink-faded: #6e5c42;
+  --wax: #7a2a1e;
+  --wax-bright: #96382a;
+  --desk-text: #cfc2a8;
+  --desk-text-dim: #8f8368;
+}
+
+html { background: var(--desk); }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: var(--desk-text);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(150, 120, 70, 0.10), transparent 60%),
+    var(--desk);
+}
+
+/* ---------------- The desk (control panel) ---------------- */
+
+.desk {
+  width: 340px;
+  min-width: 340px;
+  padding: 34px 28px 48px;
+  border-right: 1px solid #352b20;
+  background: linear-gradient(180deg, #241e18 0%, var(--panel) 30%);
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.desk-eyebrow {
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: var(--wax-bright);
+  margin-bottom: 10px;
+}
+
+.desk h1 {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #ece1c6;
+  margin-bottom: 12px;
+}
+
+.desk-sub {
+  font-size: 15.5px;
+  line-height: 1.45;
+  color: var(--desk-text-dim);
+  font-style: italic;
+  margin-bottom: 26px;
+}
+
+.desk-block { margin-bottom: 30px; }
+
+.field-label {
+  display: block;
+  font-family: "IM Fell English SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--desk-text-dim);
+  margin-bottom: 8px;
+}
+
+#source {
+  width: 100%;
+  height: 170px;
+  resize: vertical;
+  padding: 12px 14px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #e8ddc2;
+  background: #14100c;
+  border: 1px solid #3a2f23;
+  border-radius: 2px;
+  outline: none;
+}
+#source:focus { border-color: #6e5c42; }
+
+.btn-row { display: flex; gap: 10px; margin-top: 12px; }
+
+.btn {
+  flex: 1;
+  padding: 10px 8px;
+  font-family: "IM Fell English SC", serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--desk-text);
+  background: #2a2219;
+  border: 1px solid #46392a;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn:hover { background: #332a1f; }
+.btn:focus-visible { outline: 2px solid var(--wax-bright); outline-offset: 2px; }
+
+.btn-primary {
+  background: var(--wax);
+  border-color: #93402f;
+  color: #f2e4cd;
+}
+.btn-primary:hover { background: var(--wax-bright); }
+
+.btn-ghost { background: transparent; }
+.btn-ghost:hover { background: #241d16; }
+.btn.active { border-color: var(--wax-bright); color: #f2e4cd; }
+
+.stat {
+  margin-top: 14px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--desk-text-dim);
+}
+
+/* ---------------- Cipher key legend ---------------- */
+
+.key-title {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #ece1c6;
+  border-bottom: 1px solid #3a2f23;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.key-title span {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--desk-text-dim);
+}
+
+.key-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.key-table td { padding: 5px 6px 5px 0; vertical-align: top; color: var(--desk-text); }
+.key-table td.glyph { width: 26px; font-size: 16px; color: var(--wax-bright); }
+.key-table td.val { color: var(--desk-text-dim); font-style: italic; }
+
+.key-note {
+  margin-top: 12px;
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--desk-text-dim);
+  line-height: 1.4;
+}
+
+/* ---------------- The folio (pages) ---------------- */
+
+.folio {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  padding: 56px 40px 90px;
+}
+
+.page {
+  width: min(860px, 100%);
+  aspect-ratio: 940 / 1240;
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 18% 8%, rgba(255, 250, 230, 0.55), transparent 55%),
+    radial-gradient(90% 90% at 85% 100%, rgba(120, 90, 40, 0.18), transparent 60%),
+    radial-gradient(60% 40% at 90% 12%, rgba(130, 100, 50, 0.12), transparent 70%),
+    var(--parchment);
+  box-shadow:
+    inset 0 0 90px rgba(96, 70, 30, 0.28),
+    0 18px 50px rgba(0, 0, 0, 0.55);
+  border-radius: 1px;
+}
+
+/* paper grain via an inline turbulence tile */
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.45 0 0 0 0 0.38 0 0 0 0 0.24 0 0 0 0.06 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
+}
+
+.page svg { display: block; width: 100%; height: 100%; }
+
+/* engraving ink */
+.page .ink   { stroke: var(--ink); fill: none; }
+.page .fill  { fill: var(--ink); stroke: none; }
+.page text   { fill: var(--ink); }
+
+.folio-number {
+  font-family: "IM Fell English", serif;
+  font-style: italic;
+}
+
+/* cipher reveal letters, hidden until toggled */
+.cipher-letter {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  fill: var(--wax);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+body.reveal .cipher-letter { opacity: 0.85; }
+
+/* playback highlight */
+.note-group.sounding .fill { fill: var(--wax-bright); }
+.note-group.sounding .ink { stroke: var(--wax-bright); }
+
+/* ---------------- Print ---------------- */
+
+@media print {
+  body { background: #fff; display: block; }
+  .desk { display: none; }
+  .folio { padding: 0; gap: 0; }
+  .page {
+    width: 100%;
+    box-shadow: none;
+    background: #fff;
+    page-break-after: always;
+  }
+  .page::after { display: none; }
+}
+
+/* ---------------- Small screens ---------------- */
+
+@media (max-width: 900px) {
+  body { flex-direction: column; }
+  .desk {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #352b20;
+  }
+  .folio { padding: 32px 14px 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cipher-letter { transition: none; }
+}
