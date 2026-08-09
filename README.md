@@ -98,7 +98,7 @@ The control panel, the cipher key legend, and an empty `folio` element the engra
 
 The pitch table stays diatonic (no sharps or flats) so that decoding never requires reading accidentals, and the range stays within one ledger line of the staff so the systems pack tightly. Folding 26 letters onto 13 pitches, then using duration to disambiguate, is what makes the score look musically plausible: a one-to-one letter-to-pitch mapping would need a four-octave range and read as noise, while this one produces stepwise contours and rhythmic variety that sit convincingly on a single staff.
 
-## Limitations, honestly stated
+## Limitations 
 
 - Case aside, the cipher is a substitution cipher and offers no real secrecy; it is a costume, not a vault. Anyone who suspects music-as-text will break it with frequency analysis in an afternoon.
 - Discarded characters (apostrophes, quotes, hyphens) cannot be recovered.
