@@ -1,5 +1,8 @@
 # The Manuscript Cipher
 
+<img width="2086" height="1237" alt="image" src="https://github.com/user-attachments/assets/718adfe1-e2b6-46c1-943a-cc0723ca9e6d" />
+
+
 A text-to-music cipher that engraves any document as pages of sheet music in the style of a late Classical manuscript. It ships preloaded with the Declaration of Independence, rendered as "Op. 137" across roughly eleven pages of aged parchment.
 
 The cipher is simple to state but produces genuinely complex-looking scores, and it is fully reversible: anyone holding the key can read the original text back off the page, note by note.
